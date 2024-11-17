@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" th:content="${_csrf.token}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <title>회원가입</title>
+    <style>
+        .form_group {
+            display : inline-block;
+        }
+        .btn{
+            font-size: large;
+            margin-right: 50px;
+            border:none;
+            background-color:white;
+            margin-bottom:10%;
+        }
+        .body{
+            margin-top:5%;
+            margin-left:30%;
+        }
+        #box{
+            border:1px grey solid;
+            border-radius:10px;
+            margin-top : 10%;
+            margin-left : 30%;
+            margin-right:30%;
+        }
+        td{
+            padding-top:20px;
+            padding-right:10px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{header :: header}"></div>
+<div id="box">
+    <form class="body" id="signForm" method="post" action="/sign-up">
+        <table>
+            <tr>
+                <div class="form_group">
+                    <td><label for="id">아이디</label></td>
+                    <td><input type="text" placeholder="6자리 이상" name="user_id" id="id"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="pwd">비밀번호</label></td>
+                    <td><input type="password" id="pwd" name="user_pwd" placeholder="대소문자+번호 8자리 이상"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="pw_check">비밀번호 확인</label></td>
+                    <td><input type="password" id="pw_check" name="user_pw_check" placeholder="대소문자+번호 8자리 이상"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="name">이름</label></td>
+                    <td><input type="text" id="name" name="user_name"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="nic">닉네임</label></td>
+                    <td><input type="text" id="nic" name="user_nic"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="num">전화번호</label></td>
+                    <td><input type="text" id="num" name="phone_number" placeholder="- 제외 입력"></td>
+
+                </div>
+            </tr>
+            <tr>
+                <div class="form_group">
+                    <td><label for="email">이메일</label></td>
+                    <td><input type="email" id="email" name="email_address"></td>
+                </div>
+            </tr>
+        </table>
+        <div class="body">
+            <button type="submit" class="btn">회원가입</button>
+            <button class="btn" onclick="window.history.back()">취소</button>
+        </div>
+    </form>
+
+
+
+</div>
+<script src="/js/sign-up.js" ></script>
+</body>
+</html>
