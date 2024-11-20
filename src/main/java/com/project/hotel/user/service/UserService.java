@@ -20,12 +20,13 @@ public class UserService {
     // 회원가입
     public int signUp(UserDto userDto){
         int result = 0;
-
-        String encodedPw = passwordEncoder.encode(userDto.getUserPwd());
+        System.out.println(userDto);
+        String encodedPw = passwordEncoder.encode(userDto.getUserPw());
 
         User user = userDto.toEntity();
         user.setUserPw(encodedPw);
         user.setUserNic(user.getUserName());
+        user.setUserRole("user");
 
         try{
             userRepository.save(user);
@@ -35,7 +36,20 @@ public class UserService {
             result = 0;
         }
 
-
         return result;
+    }
+
+    public User findByUserId(String userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    public Boolean findByUser(UserDto userDto){
+        User user = userRepository.findByUserId(userDto.getUserId());
+        if(user != null){
+            System.out.println("결과1: "+user.getUserPw()+","+userDto.getUserPw());
+            return passwordEncoder.matches(userDto.getUserPw(), user.getUserPw());
+        }else{
+            return false;
+        }
     }
 }

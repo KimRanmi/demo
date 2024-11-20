@@ -13,7 +13,7 @@ public class UserDto {
 
     private Long userNo;
     private String userId;
-    private String userPwd;
+    private String userPw;
     private String userName;
     private String userNic;
     private String userRole;
@@ -24,7 +24,7 @@ public class UserDto {
         return User.builder()
                 .userNo(userNo)
                 .userId(userId)
-                .userPw(userPwd)
+                .userPw(userPw)
                 .userRole(userRole)
                 .userNic(userNic)
                 .emailAddress(emailAddress)
@@ -37,7 +37,7 @@ public class UserDto {
         return UserDto.builder()
                 .userNo(user.getUserNo())
                 .userId(user.getUserId())
-                .userPwd(user.getUserPw())
+                .userPw(user.getUserPw())
                 .userNic(user.getUserNic())
                 .userRole(user.getUserRole())
                 .phoneNumber(user.getPhoneNumber())

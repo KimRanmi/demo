@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="csrf-token" th:content="${_csrf.token}">
 
     <title>00사이트</title>
     <meta name="description" content="">
@@ -36,15 +35,15 @@
         <a href="index.html" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 class="sitename">펜션이름</h1>
+            <h1 class="sitename">노라주나</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="/" class="active">홈</a></li>
+                <li ><a href="/" class="active">홈</a></li>
                 <!--<li><a href="our-story.html">로그인</a></li>-->
-                <li><a href="/login" class="active">로그인</a></li>
-                <li><a href="events.html" class="active"></a></li>
+                <li sec:authorize="isAnonymous()"><a href="/login" class="active">로그인</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/logout" class="active">로그아웃</a></li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
                 <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -66,9 +65,9 @@
                 </li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
     </div>
 </header>
 </div>

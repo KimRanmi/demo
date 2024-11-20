@@ -3,8 +3,6 @@ const form = document.getElementById("signForm");
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
     // 유효성 검사
     let vali_check = false;
     let vali_text="";
@@ -24,6 +22,8 @@ form.addEventListener('submit', (e) => {
         vali_text += "핸드폰 번호를 입력하세요.";
     }else if(form.email.value == ""){
         vali_text += "이메일을 입력하세요.";
+    }else if(form.pw_check.value != form.pwd.value){
+        vali_text += "비밀번호가 일치하지 않습니다.";
     }else{
         vali_check = true;
     }
@@ -42,12 +42,10 @@ form.addEventListener('submit', (e) => {
               payload[key] = value;
             });
         console.log(payload);
-        console.log(csrfToken);
         fetch('/sign-up',{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json', //JSON 형식으로 전달
-                'X-CSRF-TOKEN' : csrfToken
             },
             body: JSON.stringify(payload) // JSON 형식으로 데이터 전송
         })
