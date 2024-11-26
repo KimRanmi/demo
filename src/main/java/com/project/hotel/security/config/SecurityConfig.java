@@ -35,7 +35,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // CSRF 토큰 비활성화
                 .authorizeRequests()
-                .requestMatchers("/", "/sign-up", "/vendor/**", "/static/**", "/assets/**", "/images/**", "/login").permitAll()  // 로그인 및 정적 리소스 허용
+                .requestMatchers("/", "/sign-up", "/static/**", "/login").permitAll()  // 로그인 및 정적 리소스 허용
                  //.anyRequest().authenticated()  // 그 외 모든 요청은 인증된 사용자만 접근
                 .and()
                 .formLogin(form -> form

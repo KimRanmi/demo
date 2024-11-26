@@ -42,6 +42,21 @@ public class UserApiController {
         return result;
     }
 
+    @PostMapping("/find-id")
+    @ResponseBody
+    public Map<String,String> findId(@RequestBody UserDto userDto){
+        Map<String,String> result = new HashMap<>();
+        User user = userService.findByUserNameAndemailAddress(userDto);
+
+        if(user != null){
+            result.put("res_code","200");
+            result.put("userId",user.getUserId());
+        }else{
+            result.put("res_msg","아이디를 찾을 수 없습니다.");
+        }
+
+        return result;
+    }
 
 
 }

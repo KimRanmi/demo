@@ -31,4 +31,10 @@ public class UserViewController {
         return "/sign-up";
     }
 
+    @GetMapping("/findId")
+    public  String findId() {return "/find-id";}
+
+    @GetMapping("/findPw")
+    public String findPw() {return "/find-pw";}
+
 }

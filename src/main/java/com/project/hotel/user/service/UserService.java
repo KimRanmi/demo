@@ -52,4 +52,20 @@ public class UserService {
             return false;
         }
     }
+
+    public User findByUserNameAndemailAddress(UserDto userDto){
+        return userRepository.findByUserNameAndEmailAddress(userDto.getUserName(),userDto.getEmailAddress());
+    }
+
+    public User findByUserIdAndemailAddress(UserDto userDto){
+        return userRepository.findByUserIdAndEmailAddress(userDto.getUserId(),userDto.getEmailAddress());
+    }
+
+    public User updateUserPw(String userId, String tempPassword){
+        User user = userRepository.findByUserId(userId);
+        String encodedPw = passwordEncoder.encode(tempPassword);
+
+        user.setUserPw(encodedPw);
+        return userRepository.save(user);
+    }
 }

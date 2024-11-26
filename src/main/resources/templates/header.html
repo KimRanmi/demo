@@ -41,11 +41,12 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li ><a href="/" class="active">홈</a></li>
-                <!--<li><a href="our-story.html">로그인</a></li>-->
+                <li><a href="/our-story">our-story</a></li>
                 <li sec:authorize="isAnonymous()"><a href="/login" class="active">로그인</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="/logout" class="active">로그아웃</a></li>
-                <li><a href="gallery.html" class="active">Gallery</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="/event">event</a></li>
+                <li><a href="/gallery" class="active">Gallery</a></li>
+                <li><a href="/blog" class="active">Blog</a></li>
                 <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         <li><a href="#">Dropdown 1</a></li>
@@ -63,7 +64,7 @@
                         <li><a href="#">Dropdown 4</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
 
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

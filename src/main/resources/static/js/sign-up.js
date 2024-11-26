@@ -69,3 +69,64 @@ form.addEventListener('submit', (e) => {
         })
     }
 })
+
+/*
+document.getElementById("authBtn").addEventListener('click', function(){
+    document.getElementById("auth").style.display = "flex";
+    let adr = document.getElementById('email').value;
+    fetch("/auth/send-code", {
+        method: "post",
+        headers : {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(adr)
+    })
+    .then(response => response.json())
+    .then(data => {
+                if(data.res_code === '200'){
+                    Swal.fire({
+                        icon : 'success',
+                        title : "성공",
+                        text : data.res_msg
+                    })
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title : "실패",
+                        text : data.res_msg
+                    });
+                }
+            })
+})
+
+// 확인 버튼 클릭 이벤트
+    document.getElementById("verifyBtn").addEventListener("click", function() {
+        var authCode = document.getElementById("authCode").value;
+
+        if (authCode) {
+            // 서버에 인증 코드 확인 요청 보내기
+            fetch("/auth/verify-code", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ code: authCode })  // 인증번호를 서버로 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                        if(data.res_code === '200'){
+                            Swal.fire({
+                                icon : 'success',
+                                title : "성공",
+                                text : data.res_msg
+                            })
+                        }else{
+                            Swal.fire({
+                                icon: 'error',
+                                title : "실패",
+                                text : data.res_msg
+                            });
+                        }
+                    })
+    }
+    });*/
