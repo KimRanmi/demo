@@ -18,5 +18,9 @@ public class ReviewViewController {
         return "/review";
     }
 
+    @GetMapping("/detail")
+    public String detail(){
+        return "review/detail";
+    }
 
 }
